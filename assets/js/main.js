@@ -255,3 +255,25 @@
   });
 
 })()
+
+function sendEmail(){
+  Email.send({
+  Host : "smtp.gmail.com",
+  Port: 587,
+  Username : "tistadno@gmail.com",
+  Password : "kedgmugdeswrkjkx",
+  To : 'tistadno@gmail.com',
+  From : document.getElementById('email').value,
+  Subject :  document.getElementById('subject').value,
+  Body : "Name:  " + document.getElementById('name').value
+        + " <br> Message:  " + document.getElementById("message").value
+}).then(
+message => alert("Message sent successfully")
+)
+.catch((err) => (console.log(err)))
+}
+
+const btn = document.getElementById('btn')
+btn.addEventListener('click',()=>{
+  sendEmail()
+})
